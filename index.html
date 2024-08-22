@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إدارة المهام - تصميم تفاعلي</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script type="module" crossorigin src="/assets/index-BDiSdVcY.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-xn-tOM1T.css">
+</head>
+
+<body>
+  <div id="taskOverlay" class="overlay"></div>
+
+  <div class="top-bar">
+    <h1>إدارة المهام</h1>
+    <div class="search-container">
+      <input type="text" placeholder="ابحث عن مهمة...">
+      <button>بحث</button>
+    </div>
+    <div class="timer-container">
+      <div id="timer" class="timer"></div>
+      <div id="notify" class="notify"></div>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <div class="pomodoro-timer">
+        <h1>pomodoro</h1>
+        <div class="mode-selector">
+          <button class="mode active">pomodoro</button>
+          <button class="mode">short break</button>
+          <button class="mode">long break</button>
+        </div>
+        <div class="timer">
+          <div class="circle">
+            <div class="time">25:00</div>
+            <button class="start-btn">START</button>
+          </div>
+        </div>
+        <div class="settings-icon">
+          <i class="fas fa-cog"></i>
+        </div>
+      </div>
+
+      <h2>الفئات</h2>
+      <div class="category">
+        <h3>الفئة 1</h3>
+        <ul>
+          <li>مهمة 1</li>
+          <li>مهمة 2</li>
+        </ul>
+      </div>
+
+      <!-- قسم المهام المكررة -->
+      <div class="recurring-tasks">
+        <h2>المهام المكررة <button class="toggle-recurring">عرض/إخفاء</button></h2>
+        <div class="cardsContainer" id="cardsContainer" style="display: none;">
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="tasks-container">
+        <div class="tasks" data-typ="current">
+          <h2>المهام <button class="btn-addTask" data-typ='current'>+ إضافة مهمة</button></h2>
+          <!-- قائمة المهام الحالية -->
+        </div>
+
+        <div class="tasks" data-typ="complet">
+          <h2>المهام المكتملة <button class="btn-addTask" data-typ="complet">+ إضافة مهمة</button></h2>
+          <!-- قائمة المهام المكتملة -->
+        </div>
+      </div>
+    </div>
+
+    <div class="right-bar">
+      <div class="calendar-h2">
+        <h2>التقويم</h2>
+        <div id="calendar"></div>
+        <p>عرض التقويم الشهري</p>
+      </div>
+
+      <div class="reports">
+        <canvas id="myBarChart" width="500" height="200"></canvas>
+        <canvas id="myPieChart" width="500" height="200"></canvas>
+        <h2>التقارير</h2>
+        <p>عرض التقارير</p>
+      </div>
+    </div>
+
+    <section class="task-addition" id="taskPopup">
+      <h2>إضافة مهمة</h2>
+      <form id="taskForm">
+        <label for="taskTitle">عنوان المهمة:</label>
+        <input type="text" id="taskTitle" name="title" placeholder="أدخل عنوان المهمة" required>
+
+        <label for="taskDescription">وصف المهمة:</label>
+        <textarea id="taskDescription" name="description" placeholder="أدخل وصف المهمة" ></textarea>
+<!-- 
+        <label for="taskDueDate">تاريخ الاستحقاق:</label>
+        <input type="datetime-local" id="taskDueDate" name="dueDate" > -->
+
+        <label for="taskPriority">الأولوية:</label>
+        <select id="taskPriority" name="priority" >
+          <option value="low">منخفضة</option>
+          <option value="medium">متوسطة</option>
+          <option value="high">عالية</option>
+        </select>
+
+        <label for="taskCategory">الفئة:</label>
+        <input type="text" id="taskCategory" name="category" placeholder="أدخل فئة المهمة" >
+
+        <label for="taskTags">العلامات (مفصولة بفاصلة):</label>
+        <input type="text" id="taskTags" name="tags" placeholder="أدخل العلامات">
+
+        <label for="taskColor">لون التخصيص:</label>
+        <input type="color" id="taskColor" name="color">
+
+        <div class="form-buttons">
+          <button type="submit">إضافة</button>
+          <button type="button" id="btn-cancel" class="btn-cancel">إلغاء</button>
+        </div>
+      </form>
+    </section>
+
+    <div id="recurrencePopup" class="popup hide">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2>خيارات التكرار</h2>
+        <!-- حقول التكرار -->
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
+</html>
