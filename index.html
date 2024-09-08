@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=0.70">
   <title>إدارة المهام - تصميم تفاعلي</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <script type="module" crossorigin src="assets/index-DarwvV6e.js"></script>
-  <link rel="stylesheet" crossorigin href="assets/index-qIhCZW8o.css">
+  <link rel="stylesheet" crossorigin href="assets/index-Bz4dKcr5.css">
 </head>
 
 <body>
@@ -77,7 +77,7 @@
               <!-- <span id="time-slider-value">0h:30m</span> -->
               <div class="slider-container slider-container-pomodoro-timer">
                 <button class="decrease-btn decrease-btn-pomodoro">-</button>
-                <input type="range" class="time-slider pomodoro-duration" min="1" max="240" value="30">
+                <input type="range" class="time-slider pomodoro-duration" min="0.1" max="600" value="30">
                 <button class="increase-btn increase-btn-pomodoro ">+</button>
               </div>
             </div>
@@ -89,12 +89,11 @@
         <div class="timer pomodoro-timer-short hidden">
           <div class="circle">
             <span class="result result-short-break">5</span>
-            <!-- <span id="short-break-slider-value">25:00</span> -->
             <div class="slider-container slider-container-short-break">
               <button class=" decrease-btn decrease-btn-short-break">-</button>
-              <input id="short-break-duration" class="time-slider-short-break-duration" type="range" min="1" max="60"
+              <input id="short-break-duration" class="time-slider-short-break-duration" type="range" min="0.1" max="60"
                 value="25">
-              <button class="increase-btn increase-btn-sort-break">+</button>
+              <button class="increase-btn increase-btn-short-break">+</button>
             </div>
             <button class="start-btn-short-break hide">START</button>
           </div>
@@ -106,7 +105,7 @@
             <label for="long-break-duration" class="time-label-long-break">مدة الاستراحة الطويلة:</label>
             <div class="slider-container slider-container-long-break">
               <button class=" decrease-btn decrease-btn-long-break">-</button>
-              <input id="long-break-duration" class="time-slider-long-break-duration" type="range" min="1" max="60"
+              <input id="long-break-duration" class="time-slider-long-break-duration" type="range" min="0.1" max="60"
                 value="25">
               <button class="increase-btn increase-btn-long-break">+</button>
             </div>
@@ -187,10 +186,10 @@
                 <div class="sound-setting">
                   <label for="ticking-sound">Ticking Sound</label>
                   <select id="ticking-sound" class="sound-dropdown">
-                    <option value="none" >None</option>
+                    <option value="none">None</option>
                     <option value="soft">fast tick</option>
                     <option value="slow tick">slow tick</option>
-                    <option value="wave" selected >Wave</option>
+                    <option value="wave" selected>Wave</option>
                     <option value="rain">Rain</option>
                   </select>
                   <input type="range" min="0" max="100" value="36" class="sound-slider-2">
@@ -245,7 +244,7 @@
 
       <!-- قسم المهام المكررة -->
       <div class="recurring-tasks">
-        <h2>  <button class="toggle-recurring">المهام المكررة</button></h2>
+        <h2> <button class="toggle-recurring">المهام المكررة</button></h2>
         <div class="cardsContainer animate__animated animate__fadeOut" id="cardsContainer">
         </div>
       </div>
@@ -273,24 +272,29 @@
       </div>
 
       <div class="reports">
-        <h2>التقارير</h2>
 
 
 
 
- <div class="chart-filter">
-  <label for="last-seven-days-tasks" class="styled-label">
-    <input type="checkbox" id="last-seven-days-tasks" class="styled-checkbox chartCheckBox">
-    Last 7 Days (Tasks)
-  </label>
-  </div>
 
-<canvas id="myBarChart" width="500" height="200"></canvas>
+ 
+
+        <div class="charts">
+          <h2>التقارير</h2>
+          <div class="chart-filter">
+            <label for="last-seven-days-tasks" class="styled-label">
+              <input type="checkbox" id="last-seven-days-tasks" class="styled-checkbox chartCheckBox">
+              Last 7 Days (Tasks)
+            </label>
+          </div>
+          <canvas id="myBarChart"></canvas>
 
 
-<canvas id="myLineChart" width="400" height="200"></canvas>
+          <canvas id="myLineChart"></canvas>
 
-<canvas id="myPieChart" width="500" height="200"></canvas>
+          <canvas id="myPieChart"></canvas>
+
+        </div>
 
 
       </div>
@@ -373,13 +377,21 @@
     <h2>Reminder Settings</h2>
     <form id="reminder-form">
       <div class="form-group">
-
+        <!-- <label for="reminder-enabled">Enable Reminder</label>
+        <input type="checkbox" id="reminder-enabled"> -->
       </div>
       <div class="form-group">
         <label for="reminder-date">Reminder Date</label>
         <input type="datetime-local" id="reminder-date">
       </div>
-
+      <!-- <div class="form-group">
+        <label for="reminder-type">Reminder Type</label>
+        <select id="reminder-type">
+          <option value="email">Email</option>
+          <option value="popup">Popup</option>
+          <option value="notification">Notification</option>
+        </select>
+      </div> -->
       <div class="form-buttons">
         <button type="submit" class="save-button">Save</button>
         <button type="button" id="btn-cancel" class="cancel-button cancel-button-reminder">Cancel</button>
@@ -394,7 +406,7 @@
   </div>
 
 
-   
+
 
 </body>
 
