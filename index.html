@@ -3,83 +3,273 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.70">
   <title>إدارة المهام - تصميم تفاعلي</title>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" charset="utf-8" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js" charset="utf-8" defer></script>
+
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.js " defer></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <script type="module" crossorigin src="assets/index-APiA6NYs.js"></script>
-  <link rel="stylesheet" crossorigin href="assets/index-xn-tOM1T.css">
+  <script type="module" crossorigin src="/assets/index-Ch-sRXH7.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CSTgMHcw.css">
 </head>
 
 <body>
   <div id="taskOverlay" class="overlay"></div>
 
-  <div class="top-bar">
-    <h1>إدارة المهام</h1>
-    <div class="search-container">
-      <input type="text" placeholder="ابحث عن مهمة...">
-      <button>بحث</button>
-    </div>
-    <div class="timer-container">
-      <div id="timer" class="timer"></div>
-      <div id="notify" class="notify"></div>
-    </div>
-  </div>
+  <header class="top-bar">
+    <h1 class="app-title">إدارة المهام</h1>
+  </header>
 
   <div class="main-container">
-    <div class="sidebar">
-      <div class="pomodoro-timer">
-        <h1>pomodoro</h1>
-        <div class="mode-selector">
-          <button class="mode active">pomodoro</button>
-          <button class="mode">short break</button>
-          <button class="mode">long break</button>
+
+    <section class="sidebar">
+
+      <div class="circle-session session-display remaining-sessions">
+        <div class="session-number">
+          <i class="fas fa-clock"></i>
+          <span class="remaining-sessions-value"></span>
         </div>
-        <div class="timer">
+        <span class="session-label">جلسات متبقية</span>
+      </div>
+
+      <div class="circle-session session-display all-session">
+        <div class="session-number">
+          <i class="fas fa-clock"></i>
+          <span class="all-session-value"></span>
+        </div>
+        <span class="session-label">كل الجلسات </span>
+      </div>
+
+
+
+      <div class="task-conected">
+        <button id="with-task" class="with-task">with-task</button>
+        <button id="with-task-category" class="with-task-category">with-category</button>
+
+
+      </div>
+      <div class="free-conected">
+        <button id="free-task" class="free-task activeColor">free-task</button>
+      </div>
+
+      <div class="pomodoro-timer">
+        <div class="pomodoro-title-settings">
+          <div class="settings-icon">
+            <i class="fas fa-cog settings-icon"></i>
+          </div>
+          <h1>Pomodoro Timer</h1>
+        </div>
+
+
+        <div class="mode-selector">
+          <button id="pomodoro-btn" class="mode active" data-mode="pomodoro">Pomodoro</button>
+          <button id="short-break-btn" class="mode" data-mode="short-break">Short Break</button>
+          <button id="long-break-btn" class="mode" data-mode="long-break">Long Break</button>
+        </div>
+
+
+        <div class="timer pomodoro-timer-count">
           <div class="circle">
-            <div class="time">25:00</div>
-            <button class="start-btn">START</button>
+
+            <span class="reminge-sessions"></span>
+            <span class="result result-pomodoro">0h:30m</span>
+            <div class="time-selector-container">
+              <!-- <span id="time-slider-value">0h:30m</span> -->
+              <div class="slider-container slider-container-pomodoro-timer">
+                <button class="decrease-btn decrease-btn-pomodoro">-</button>
+                <input type="range" class="time-slider pomodoro-duration" min="0.1" max="600" value="30">
+                <button class="increase-btn increase-btn-pomodoro ">+</button>
+              </div>
+            </div>
+            <button class="start-btn start-btn-pomodoro">START</button>
+          </div>
+          <button class="reset-btn reset-pomodoro-btn ">Reset</button>
+        </div>
+
+        <div class="timer pomodoro-timer-short hidden">
+          <div class="circle">
+            <span class="result result-short-break">5</span>
+            <!-- <span id="short-break-slider-value">25:00</span> -->
+            <div class="slider-container slider-container-short-break">
+              <button class=" decrease-btn decrease-btn-short-break">-</button>
+              <input id="short-break-duration" class="time-slider-short-break-duration" type="range" min="0.1" max="60"
+                value="25">
+              <button class="increase-btn increase-btn-sort-break">+</button>
+            </div>
+            <button class="start-btn-short-break hide">START</button>
+          </div>
+          <button class="reset-btn reset-pomodoro-btn activeColor">Reset</button>
+        </div>
+
+        <div class="timer pomodoro-timer-long hidden">
+          <div class="circle">
+            <label for="long-break-duration" class="time-label-long-break">مدة الاستراحة الطويلة:</label>
+            <div class="slider-container slider-container-long-break">
+              <button class=" decrease-btn decrease-btn-long-break">-</button>
+              <input id="long-break-duration" class="time-slider-long-break-duration" type="range" min="0.1" max="60"
+                value="25">
+              <button class="increase-btn increase-btn-long-break">+</button>
+            </div>
+            <span class="result result-long-break"></span>
+
+            <label for="sessions-before-long-break" class="time-label-long-break">عدد الجلسات قبل الاستراحة
+              الطويلة:</label>
+            <div class="slider-container slider-container-long-break">
+              <button class="decrease-btn-sessions">-</button>
+              <input id="sessions-before-long-break" class="sessions-slider sessions-before-long-break" type="range"
+                min="1" max="10" value="1">
+              <button class="increase-btn-sessions">+</button>
+            </div>
+            <span id="sessions-slider-value">1 جلسة</span>
+
+
+            <button class="start-btn start-btn-long-break hide">START</button>
+          </div>
+
+          <button class="reset-btn reset-pomodoro-btn activeColor">Reset</button>
+        </div>
+
+
+
+
+        <!-- Settings Modal -->
+        <div class="settings-modal " style="display: none;">
+          <div class="modal-content pomodoro-settings-modal">
+            <div class="modal-header">
+              <h2 class="modal-title">SETTING</h2>
+              <button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+              <section class="timer-settings section">
+                <h3 class="section-title">TIMER</h3>
+
+                <div class="switches field-group">
+                  <div class="switch-container">
+                    <label for="auto-start-breaks">Auto Start Breaks</label>
+                    <label class="switch">
+                      <input id="auto-start-breaks" type="checkbox">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div class="switch-container">
+                    <label for="auto-start-pomodoros">Auto Start Pomodoros</label>
+                    <label class="switch">
+                      <input id="auto-start-pomodoros" type="checkbox">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+              </section>
+              <section class="task-settings section">
+                <h3 class="section-title">TASK</h3>
+                <div class="switch-container">
+                  <label for="auto-check-tasks">Auto Check Tasks</label>
+                  <label class="switch">
+                    <input id="auto-check-tasks" type="checkbox">
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+              </section>
+              <section class="sound-settings section">
+                <h3 class="section-title">SOUND</h3>
+                <div class="sound-setting">
+                  <label for="alarm-sound">Alarm Sound</label>
+                  <select id="alarm-sound" class="sound-dropdown">
+                    <option value="alarm">Alarm fire</option>
+                    <option value="notification" selected>Notification</option>
+                  </select>
+                  <input type="range" min="0" max="100" value="40" class="sound-slider-1">
+                  <label for="alarm-repeat">repeat</label>
+                  <input id="alarm-repeat" type="number" value="1" min="1" class="repeat-input">
+                </div>
+                <div class="sound-setting">
+                  <label for="ticking-sound">Ticking Sound</label>
+                  <select id="ticking-sound" class="sound-dropdown">
+                    <option value="none" >None</option>
+                    <option value="soft">fast tick</option>
+                    <option value="slow tick">slow tick</option>
+                    <option value="wave" selected >Wave</option>
+                    <option value="rain">Rain</option>
+                  </select>
+                  <input type="range" min="0" max="100" value="36" class="sound-slider-2">
+                </div>
+              </section>
+            </div>
           </div>
         </div>
-        <div class="settings-icon">
-          <i class="fas fa-cog"></i>
+
+
+
+      </div>
+
+      <!-- //// -->
+      <div class="cutom-btns">
+        <button class="custom-btn-open-results">عرض الفئات المضافة</button>
+        <button class="custom-btn-open-form">إنشاء فئة جديدة</button>
+      </div>
+
+
+      <!-- Form Modal -->
+      <div class="custom-modal hidden">
+        <div class="custom-modal-content">
+          <span class="custom-btn-close">&times;</span>
+          <h2>إنشاء فئة جديدة</h2>
+          <form class="custom-category-form">
+            <label class="label-category-name">اسم الفئة:</label>
+            <input type="text" class="custom-input-category-name" required>
+
+            <!-- <label class="label-long-break">استراحة طويلة (دقائق):</label>
+                  <input type="number" class="custom-input-long-break" required> -->
+
+            <div class="custom-tasks-container">
+              <h3>المهام</h3>
+            </div>
+
+            <button type="button" class="custom-btn-add-task">إضافة مهمة</button>
+            <button type="submit" class="custom-btn-submit">حفظ الفئة</button>
+            <button type="button" class="custom-btn-submit-edit-category hide">save edit category</button>
+          </form>
         </div>
       </div>
 
-      <h2>الفئات</h2>
-      <div class="category">
-        <h3>الفئة 1</h3>
-        <ul>
-          <li>مهمة 1</li>
-          <li>مهمة 2</li>
-        </ul>
+      <!-- Results Modal -->
+      <div class="custom-modal-results hidden">
+        <div class="custom-modal-content-results">
+          <span class="custom-btn-close-results">&times;</span>
+          <h2>الفئات المضافة</h2>
+          <div class="custom-category-list" id="customCategoryList"></div>
+        </div>
       </div>
 
       <!-- قسم المهام المكررة -->
       <div class="recurring-tasks">
-        <h2>المهام المكررة <button class="toggle-recurring">عرض/إخفاء</button></h2>
-        <div class="cardsContainer" id="cardsContainer" style="display: none;">
+        <h2>  <button class="toggle-recurring">المهام المكررة</button></h2>
+        <div class="cardsContainer animate__animated animate__fadeOut" id="cardsContainer">
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="main-content">
+    <section class="main-content">
       <div class="tasks-container">
-        <div class="tasks" data-typ="current">
-          <h2>المهام <button class="btn-addTask" data-typ='current'>+ إضافة مهمة</button></h2>
-          <!-- قائمة المهام الحالية -->
-        </div>
-
         <div class="tasks" data-typ="complet">
           <h2>المهام المكتملة <button class="btn-addTask" data-typ="complet">+ إضافة مهمة</button></h2>
           <!-- قائمة المهام المكتملة -->
         </div>
-      </div>
-    </div>
 
-    <div class="right-bar">
+        <div class="tasks" data-typ="current">
+          <h2>المهام <button class="btn-addTask" data-typ='current'>+ إضافة مهمة</button></h2>
+          <!-- قائمة المهام الحالية -->
+        </div>
+      </div>
+    </section>
+
+    <section class="right-bar">
       <div class="calendar-h2">
         <h2>التقويم</h2>
         <div id="calendar"></div>
@@ -87,56 +277,138 @@
       </div>
 
       <div class="reports">
-        <canvas id="myBarChart" width="500" height="200"></canvas>
-        <canvas id="myPieChart" width="500" height="200"></canvas>
         <h2>التقارير</h2>
-        <p>عرض التقارير</p>
+
+
+
+
+ <div class="chart-filter">
+  <label for="last-seven-days-tasks" class="styled-label">
+    <input type="checkbox" id="last-seven-days-tasks" class="styled-checkbox chartCheckBox">
+    Last 7 Days (Tasks)
+  </label>
+  </div>
+
+<canvas id="myBarChart" width="500" height="200"></canvas>
+
+
+<canvas id="myLineChart" width="400" height="200"></canvas>
+
+<canvas id="myPieChart" width="500" height="200"></canvas>
+
+
       </div>
-    </div>
-
-    <section class="task-addition" id="taskPopup">
-      <h2>إضافة مهمة</h2>
-      <form id="taskForm">
-        <label for="taskTitle">عنوان المهمة:</label>
-        <input type="text" id="taskTitle" name="title" placeholder="أدخل عنوان المهمة" required>
-
-        <label for="taskDescription">وصف المهمة:</label>
-        <textarea id="taskDescription" name="description" placeholder="أدخل وصف المهمة" ></textarea>
-<!-- 
-        <label for="taskDueDate">تاريخ الاستحقاق:</label>
-        <input type="datetime-local" id="taskDueDate" name="dueDate" > -->
-
-        <label for="taskPriority">الأولوية:</label>
-        <select id="taskPriority" name="priority" >
-          <option value="low">منخفضة</option>
-          <option value="medium">متوسطة</option>
-          <option value="high">عالية</option>
-        </select>
-
-        <label for="taskCategory">الفئة:</label>
-        <input type="text" id="taskCategory" name="category" placeholder="أدخل فئة المهمة" >
-
-        <label for="taskTags">العلامات (مفصولة بفاصلة):</label>
-        <input type="text" id="taskTags" name="tags" placeholder="أدخل العلامات">
-
-        <label for="taskColor">لون التخصيص:</label>
-        <input type="color" id="taskColor" name="color">
-
-        <div class="form-buttons">
-          <button type="submit">إضافة</button>
-          <button type="button" id="btn-cancel" class="btn-cancel">إلغاء</button>
-        </div>
-      </form>
     </section>
 
-    <div id="recurrencePopup" class="popup hide">
-      <div class="popup-content">
-        <span class="close-btn">&times;</span>
-        <h2>خيارات التكرار</h2>
-        <!-- حقول التكرار -->
+  </div>
+
+  <section class="task-addition" id="taskPopup">
+    <h2 class="task-addition-title">إضافة مهمة</h2>
+    <form id="taskForm">
+      <label for="taskTitle">عنوان المهمة:</label>
+      <input type="text" id="taskTitle" name="title" placeholder="أدخل عنوان المهمة" required>
+
+
+
+      <label for="taskPriority">الأولوية:</label>
+      <select id="taskPriority" name="priority">
+        <option value="low">منخفضة</option>
+        <option value="medium">متوسطة</option>
+        <option value="high">عالية</option>
+      </select>
+
+
+
+      <div class="form-buttons">
+        <button type="submit" class="form-button-submit-task">إضافة</button>
+        <button type="button" class="pomodoro-with-task-button hide">بدأ</button>
+        <button type="button" class="button-edit-pomodoro hide">تعديل</button>
+        <button type="button" id="btn-cancel" class="btn-cancel">إلغاء</button>
+      </div>
+    </form>
+  </section>
+
+  <section id="recurrencePopup" class="popup hide">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <h2>خيارات التكرار</h2>
+
+      <label for="recurrence-type">نوع التكرار:</label>
+      <select id="recurrence-type" class="recurrence-type">
+        <option value="none">لا يوجد</option>
+        <option value="daily">يومي</option>
+        <option value="weekly">أسبوعي</option>
+        <option value="monthly">شهري</option>
+        <option value="yearly">سنوي</option>
+        <option value="custom">مخصص</option>
+      </select>
+
+      <!-- حقل لتحديد الفاصل الزمني للتكرار المخصص -->
+      <div id="custom-interval-container" class="hide">
+        <label for="custom-interval">الفاصل الزمني (أيام):</label>
+        <input type="number" id="custom-interval" min="1" placeholder="أدخل عدد الأيام">
+      </div>
+
+      <!-- حقل لتحديد الأيام المطلوبة -->
+      <div id="days-selection-container" class="hide">
+        <label>اختر الأيام:</label>
+        <div class="days-checkboxes">
+          <label><input type="checkbox" value="SU">الأحد</label>
+          <label><input type="checkbox" value="MO">الإثنين</label>
+          <label><input type="checkbox" value="TU">الثلاثاء</label>
+          <label><input type="checkbox" value="WE">الأربعاء</label>
+          <label><input type="checkbox" value="TH">الخميس</label>
+          <label><input type="checkbox" value="FR">الجمعة</label>
+          <label><input type="checkbox" value="SA">السبت</label>
+        </div>
+      </div>
+
+      <!-- <label for="recurrence-end-date">تاريخ انتهاء التكرار:</label>
+      <input type="date" id="recurrence-end-date"> -->
+
+      <div class="form-buttons">
+        <button type="button" id="saveRecurrenceBtn" class="btn-save-recurrence">حفظ</button>
+        <button type="button" id="cancelRecurrenceBtn" class="btn-cancel">إلغاء</button>
       </div>
     </div>
+  </section>
+
+  <div class="overlay reminder-overlay" id="reminder-overlay"></div>
+
+  <div id="reminder-popup" class="popup-container reminder-popup">
+    <h2>Reminder Settings</h2>
+    <form id="reminder-form">
+      <div class="form-group">
+        <!-- <label for="reminder-enabled">Enable Reminder</label>
+        <input type="checkbox" id="reminder-enabled"> -->
+      </div>
+      <div class="form-group">
+        <label for="reminder-date">Reminder Date</label>
+        <input type="datetime-local" id="reminder-date">
+      </div>
+      <!-- <div class="form-group">
+        <label for="reminder-type">Reminder Type</label>
+        <select id="reminder-type">
+          <option value="email">Email</option>
+          <option value="popup">Popup</option>
+          <option value="notification">Notification</option>
+        </select>
+      </div> -->
+      <div class="form-buttons">
+        <button type="submit" class="save-button">Save</button>
+        <button type="button" id="btn-cancel" class="cancel-button cancel-button-reminder">Cancel</button>
+      </div>
+    </form>
   </div>
+
+  <div id="custom-notification" style="display: none;">
+    <p id="task-advice"></p>
+    <h4 id="task-title"></h4>
+    <button id="close-notification">Close</button>
+  </div>
+
+
+   
 
 </body>
 
