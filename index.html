@@ -5,12 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.70">
   <title>إدارة المهام - تصميم تفاعلي</title>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" charset="utf-8" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js" charset="utf-8" defer></script>
 
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.js " defer></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <script type="module" crossorigin src="assets/index-Ch-sRXH7.js"></script>
@@ -81,7 +76,7 @@
               <!-- <span id="time-slider-value">0h:30m</span> -->
               <div class="slider-container slider-container-pomodoro-timer">
                 <button class="decrease-btn decrease-btn-pomodoro">-</button>
-                <input type="range" class="time-slider pomodoro-duration" min="0.1" max="600" value="30">
+                <input type="range" class="time-slider pomodoro-duration" min="1" max="240" value="30">
                 <button class="increase-btn increase-btn-pomodoro ">+</button>
               </div>
             </div>
@@ -96,7 +91,7 @@
             <!-- <span id="short-break-slider-value">25:00</span> -->
             <div class="slider-container slider-container-short-break">
               <button class=" decrease-btn decrease-btn-short-break">-</button>
-              <input id="short-break-duration" class="time-slider-short-break-duration" type="range" min="0.1" max="60"
+              <input id="short-break-duration" class="time-slider-short-break-duration" type="range" min="1" max="60"
                 value="25">
               <button class="increase-btn increase-btn-sort-break">+</button>
             </div>
@@ -110,7 +105,7 @@
             <label for="long-break-duration" class="time-label-long-break">مدة الاستراحة الطويلة:</label>
             <div class="slider-container slider-container-long-break">
               <button class=" decrease-btn decrease-btn-long-break">-</button>
-              <input id="long-break-duration" class="time-slider-long-break-duration" type="range" min="0.1" max="60"
+              <input id="long-break-duration" class="time-slider-long-break-duration" type="range" min="1" max="60"
                 value="25">
               <button class="increase-btn increase-btn-long-break">+</button>
             </div>
@@ -363,8 +358,6 @@
         </div>
       </div>
 
-      <!-- <label for="recurrence-end-date">تاريخ انتهاء التكرار:</label>
-      <input type="date" id="recurrence-end-date"> -->
 
       <div class="form-buttons">
         <button type="button" id="saveRecurrenceBtn" class="btn-save-recurrence">حفظ</button>
@@ -379,21 +372,13 @@
     <h2>Reminder Settings</h2>
     <form id="reminder-form">
       <div class="form-group">
-        <!-- <label for="reminder-enabled">Enable Reminder</label>
-        <input type="checkbox" id="reminder-enabled"> -->
+
       </div>
       <div class="form-group">
         <label for="reminder-date">Reminder Date</label>
         <input type="datetime-local" id="reminder-date">
       </div>
-      <!-- <div class="form-group">
-        <label for="reminder-type">Reminder Type</label>
-        <select id="reminder-type">
-          <option value="email">Email</option>
-          <option value="popup">Popup</option>
-          <option value="notification">Notification</option>
-        </select>
-      </div> -->
+
       <div class="form-buttons">
         <button type="submit" class="save-button">Save</button>
         <button type="button" id="btn-cancel" class="cancel-button cancel-button-reminder">Cancel</button>
