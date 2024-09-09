@@ -1,0 +1,315 @@
+/* Ø­Ø§ÙˆÙŠØ© Ø§Ù„Ø¨Ø·Ø§Ù‚Ø© */
+.card-container {
+  background-color: #ffffff; /* Ù„ÙˆÙ† Ø®Ù„ÙÙŠØ© Ø§Ù„Ø¨Ø·Ø§Ù‚Ø© */
+  border-radius: 8px; /* Ø²ÙˆØ§ÙŠØ§ Ù…Ø³ØªØ¯ÙŠØ±Ø© */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ØªØ£Ø«ÙŠØ± Ø§Ù„Ø¸Ù„ */
+  padding: 20px; /* Ù…Ø³Ø§Ø­Ø© Ø¯Ø§Ø®Ù„ÙŠØ© */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Ø§Ù„Ù…Ø³Ø§ÙØ© Ø¨ÙŠÙ† Ø§Ù„Ø¹Ù†Ø§ØµØ± Ø¯Ø§Ø®Ù„ Ø§Ù„Ø¨Ø·Ø§Ù‚Ø© */
+}
+
+.card-title {
+  font-size: 2rem; /* Ø­Ø¬Ù… Ø§Ù„Ø®Ø· */
+  color: #333; /* Ù„ÙˆÙ† Ø§Ù„Ù†Øµ */
+  margin-bottom: 10px; /* Ø§Ù„Ù…Ø³Ø§ÙØ© Ø§Ù„Ø³ÙÙ„ÙŠØ© */
+}
+
+.card-details {
+  display: flex;
+  align-items: center; /* Ù…Ø­Ø§Ø°Ø§Ø© Ø§Ù„Ø¹Ù†Ø§ØµØ± Ø¹Ù…ÙˆØ¯ÙŠÙ‹Ø§ */
+  gap: 8px;
+}
+
+.card-frequency,
+.label-delete-Complet-Tasks {
+  font-size: 1.5rem; /* Ø­Ø¬Ù… Ø§Ù„Ø®Ø· */
+  color: #555; /* Ù„ÙˆÙ† Ø§Ù„Ù†Øµ */
+}
+.card-frequency span {
+  font-weight: 600;
+  color: green;
+}
+.icon {
+  color: #007bff; /* Ù„ÙˆÙ† Ø§Ù„Ø£ÙŠÙ‚ÙˆÙ†Ø© Ø§Ù„Ø£Ø²Ø±Ù‚ */
+  font-size: 1.2rem; /* Ø­Ø¬Ù… Ø§Ù„Ø£ÙŠÙ‚ÙˆÙ†Ø© */
+}
+
+.card-id {
+  font-size: 0.9rem; /* Ø­Ø¬Ù… Ø§Ù„Ø®Ø· */
+  color: #777; /* Ù„ÙˆÙ† Ø§Ù„Ù†Øµ */
+  font-size: 1.4rem;
+}
+
+.cardsContainer {
+  display: block;
+}
+h2 {
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.toggle-recurring {
+  background-color: #007bff; /* Ø£Ø²Ø±Ù‚ */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-recurring:hover {
+  background-color: #0056b3;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  position: relative;
+  border-left: 0.5rem solid #007bff;
+}
+
+.card.high-priority {
+  border-left-color: #dc3545; /* Ø£Ø­Ù…Ø± */
+}
+
+.card.medium-priority {
+  border-left-color: #ffc107; /* Ø£ØµÙØ± */
+}
+
+.card.low-priority {
+  border-left-color: #28a745; /* Ø£Ø®Ø¶Ø± */
+}
+
+.card-content {
+  /* margin-bottom: 10px; */
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø£ÙŠÙ‚ÙˆÙ†Ø§Øª */
+.icon {
+  color: #007bff; /* Ù„ÙˆÙ† Ø£Ø²Ø±Ù‚ Ù„Ù„Ø£ÙŠÙ‚ÙˆÙ†Ø© */
+  font-size: 1.8rem; /* Ø­Ø¬Ù… Ø§Ù„Ø£ÙŠÙ‚ÙˆÙ†Ø© */
+  transition: color 0.3s ease, transform 0.3s ease; /* ØªØ£Ø«ÙŠØ± Ø§Ù„ØªØºÙŠÙŠØ± */
+  cursor: pointer;
+}
+
+/* ØªØ£Ø«ÙŠØ± Ø¹Ù†Ø¯ Ø§Ù„ØªÙ…Ø±ÙŠØ± */
+.icon:hover {
+  color: #0056b3; /* Ù„ÙˆÙ† Ø£Ø²Ø±Ù‚ Ø¯Ø§ÙƒÙ† Ø¹Ù†Ø¯ Ø§Ù„ØªÙ…Ø±ÙŠØ± */
+  transform: scale(1.1); /* ØªÙƒØ¨ÙŠØ± Ø§Ù„Ø£ÙŠÙ‚ÙˆÙ†Ø© Ù‚Ù„ÙŠÙ„Ø§Ù‹ */
+}
+
+/* ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„ØªÙØ§ØµÙŠÙ„ */
+.details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.details p {
+  font-size: 1rem;
+  color: #666; /* Ù„ÙˆÙ† Ù†Øµ Ù…ØªÙˆØ³Ø· */
+}
+
+.delete-card-recurrence {
+  background-color: #dc3545; /* Ø£Ø­Ù…Ø± */
+  margin-top: 1.2rem;
+  color: white;
+  font-size: 1.6rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.delete-card-recurrence:hover {
+  background-color: #c33;
+}
+
+.days-checkboxes {
+  display: flex;
+  gap: 1rem;
+  text-align: center;
+}
+
+label {
+  cursor: pointer;
+}
+
+.task-container.medium-priority {
+  background: #ffc1078d;
+}
+
+.task-container.low-priority {
+  background: #caf8d4;
+}
+.task-container.high-priority {
+  background: #dc354689;
+}
+
+span.medium-priority {
+  font-weight: 700;
+  color: #ffc107;
+}
+
+span.low-priority {
+  font-weight: 700;
+
+  color: #28a745;
+}
+span.high-priority {
+  font-weight: 700;
+
+  color: #dc3546;
+}
+
+.ConnectWithPomodor {
+  background-color: #e9f7fa; /* Ø®Ù„ÙÙŠØ© ØªØ´ÙŠØ± Ø¥Ù„Ù‰ Ø§Ù„Ø§Ø±ØªØ¨Ø§Ø· Ø¨Ø§Ù„Ø¨ÙˆÙ…ÙˆØ¯ÙˆØ± */
+  border-left-color: #17a2b8; /* Ù„ÙˆÙ† Ø§Ù„Ø­Ø¯ Ù„Ù„Ø¥Ø´Ø§Ø±Ø© Ø¥Ù„Ù‰ Ø§Ù„Ø¨ÙˆÙ…ÙˆØ¯ÙˆØ± */
+  border-left-width: 0.6rem; /* Ø²ÙŠØ§Ø¯Ø© Ø³Ù…Ùƒ Ø§Ù„Ø­Ø¯ */
+  position: relative;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ConnectWithPomodor:before {
+  content: '⏲️ Pomodoro Timer';
+  position: absolute;
+  top: -0.8rem;
+  left: 1.5rem;
+  background-color: #17a2b8;
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.ConnectWithPomodor:hover {
+  background-color: #d1eff3;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* تصميم الحاوية */
+.card-rec-delet-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f4f4f4; /* خلفية فاتحة للحاوية */
+  border: 1px solid #ddd; /* إطار خفيف حول الحاوية */
+}
+
+/* تصميم مربع الاختيار */
+.delete-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #007bff; /* لون المربع عند التحديد */
+}
+
+/* تصميم التسمية */
+.label-delete-Complet-Tasks {
+  font-size: 1.2rem;
+  color: #333; /* لون النص */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease; /* تأثير تغيير اللون عند المرور فوق العنصر */
+}
+
+/* تأثير عند المرور فوق التسمية */
+.label-delete-Complet-Tasks:hover {
+  color: #ff0015; 
+}
+
+.delete-checkbox:checked + .label-delete-Complet-Tasks {
+  color: #930303;
+}
+
+.task-detail-item {
+  display: inline-block;
+  margin: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.task-detail-item i {
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.task-detail-item .fa-bell {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.task-detail-item .reminder-color {
+  background-color: #ffcc00;
+  color: white;
+}
+
+.task-detail-item .edit-icon {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.task-detail-item .edit-icon:hover {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.task-detail-item .fa-redo  {
+  background-color: #f0e68c;
+  color: #666;
+}
+.task-detail-item .fa-redo:hover  {
+  background-color: #edd92a;
+  color: white;
+}
+
+.task-detail-item .reminder-color {
+  background-color: #ff9900;
+  color: white;
+}
+
+
+
+.task-detail-item {
+  display: inline-block;
+  margin: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pomodoro-icon {
+  font-size: 24px;
+  color: #f44336; 
+  background-color: #ffe5e5; 
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pomodoro-icon:hover {
+  background-color: #ff7961; 
+  color: white;
+}
+
+.pomodoro-icon-work{
+  pointer-events: none;
+  background-color: #ff7961;
+  color: white;
+}

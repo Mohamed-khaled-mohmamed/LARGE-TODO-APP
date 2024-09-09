@@ -1,0 +1,162 @@
+
+/* تحسين مظهر التقويم */
+#calendar {
+  max-width: 67rem;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+.fc {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fc-toolbar {
+  background-color: #007bff;
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.fc-toolbar .fc-button {
+  background-color: #ffffff;
+  color: #007bff;
+  border: 0.1rem solid #007bff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+}
+
+.fc-toolbar .fc-button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.fc-daygrid-day {
+  border: 0.1rem solid #eee;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  position: relative;
+  background-color: #f9f9f9;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color:  #c5ddf7;
+}
+
+.fc-daygrid-day-number {
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.fc-daygrid-day-events {
+  border-radius: 0.5rem;
+}
+
+.fc-event {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.fc-col-header {
+  width: 100%;
+}
+
+.fc-day.highlighted {
+  background-color: rgba(75, 192, 192, 0.5);
+  border-radius: 4px;
+  color: #fff;
+}
+
+.selected-day {
+  background-color: #54b4f5; /* لون الخلفية الذي ترغب به */
+  color: #ffffff; /* لون النص الذي ترغب به */
+}
+
+/* week column*/
+.fc .fc-daygrid-week-number {
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: hsl(0deg 13.54% 86.52% / 30%);
+  color: black;
+  min-width: 1.5em;
+  padding: 2px;
+  position: absolute;
+  text-align: center;
+  top: 0px;
+  z-index: 5;
+}
+
+
+/* charts */
+.reports {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.charts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 270rem; /* زيادة العرض الكلي */
+  padding: 3rem;
+}
+
+canvas {
+  width: 100%;
+  max-width: 100rem; /* حجم أكبر لكل canvas */
+  height: 60rem; /* زيادة ارتفاع كل canvas */
+  max-height: 40rem; /* زيادة الحد الأقصى للارتفاع */
+  border-radius: 10px;
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+}
+
+
+.chart-filter {
+  display: flex;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.styled-label {
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.styled-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: #4CAF50;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.styled-checkbox:hover {
+  background-color: #f0f0f0;
+}
+
+.styled-label:hover {
+  color: #4CAF50;
+}

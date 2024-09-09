@@ -45,6 +45,7 @@ This project is a comprehensive **To-Do App** that includes a Pomodoro timer and
 - **`index.js`**: Main entry point for initializing the app.
 - **`events.js`**: Event listeners and handlers.
 
+
 ## Installation
 
 1. **Clone the Repository:**
@@ -56,7 +57,30 @@ This project is a comprehensive **To-Do App** that includes a Pomodoro timer and
    ```bash
    cd LARGE-TODO-APP
    ```
+
 3. **Open `index.html` in your preferred web browser.**
+
+   - **Important**: Don't forget to update the links in your `index.html` file:
+     - Replace:
+       ```html
+       <link rel="stylesheet" crossorigin href="assets/index-Bz4dKcr5.css">
+       ```
+       with links to your CSS files (e.g., `card.css`, `category.css`, etc.):
+       ```html
+       <link rel="stylesheet" href="path/to/your/card.css">
+       <link rel="stylesheet" href="path/to/your/category.css">
+       <!-- Add other CSS links as needed -->
+       ```
+
+     - Replace:
+       ```html
+       <script type="module" crossorigin src="assets/index-DarwvV6e.js"></script>
+       ```
+       with:
+       ```html
+       <script type="module" src="js/index.js"></script>
+       ```
+
 
 ## Customization
 

@@ -1,0 +1,191 @@
+.settings-modal {
+  display:none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: end;
+}
+
+.modal-content {
+  background-color: rgb(255, 255, 255);
+  padding: 2rem; /* 20px */
+  border: 0.1rem solid rgb(136, 136, 136); /* 1px */
+  width: 80%;
+  max-width: 50rem; /* 500px */
+  border-radius: 0.8rem; /* 8px */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0.4rem 0.8rem; /* 0px 4px 8px */
+}
+
+.close-button {
+  color: rgb(170, 170, 170);
+  float: right;
+  font-size: 2.8rem; /* 28px */
+  font-weight: bold;
+}
+
+.close-button:hover, .close-button:focus {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h2.modal-title {
+  margin-bottom: 2rem; /* 20px */
+  font-size: 2.4rem; /* 24px */
+}
+
+.section {
+  margin-bottom: 2rem; /* 20px */
+  padding-top: 2rem; /* 20px */
+  border-top: 0.1rem solid rgb(170, 170, 170); /* 1px */
+}
+
+h3.section-title {
+  margin-bottom: 2rem; /* 20px */
+  font-size: 2rem; /* 20px */
+  color: rgb(51, 51, 51);
+}
+
+.field-group {
+  margin-bottom: 1.5rem; /* 15px */
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 0.5rem; /* 5px */
+  font-weight: bold;
+  color: rgb(85, 85, 85);
+}
+
+.time-inputs label, .switch-container label, .sound-setting label {
+  display: block;
+  margin-top: 1rem; /* 10px */
+  margin-bottom: 0.5rem; /* 5px */
+  font-weight: bold;
+  font-size: 1.6rem; /* 16px */
+  color: rgb(85, 85, 85);
+}
+
+.input-group {
+  display: flex;
+  gap: 1rem; /* 10px */
+}
+
+.input-group input[type="number"] {
+  width: 6rem; /* 60px */
+  padding: 0.5rem; /* 5px */
+  border: 0.1rem solid rgb(204, 204, 204); /* 1px */
+  border-radius: 0.4rem; /* 4px */
+  text-align: center;
+}
+
+.switch-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; /* 10px */
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3.4rem; /* 34px */
+  height: 2rem; /* 20px */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgb(204, 204, 204);
+  transition: all 0.4s ease;
+  border-radius: 2rem; /* 20px */
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 1.4rem; /* 14px */
+  width: 1.4rem; /* 14px */
+  left: 0.3rem; /* 3px */
+  bottom: 0.3rem; /* 3px */
+  background-color: white;
+  transition: all 0.4s ease;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: rgb(0, 123, 255);
+}
+
+input:checked + .slider::before {
+  transform: translateX(1.4rem); /* 14px */
+}
+
+select.sound-dropdown {
+  width: 100%;
+  padding: 0.5rem; /* 5px */
+  margin-top: 0.5rem; /* 5px */
+  border: 0.1rem solid rgb(204, 204, 204); /* 1px */
+  border-radius: 0.4rem; /* 4px */
+  background-color: rgb(249, 249, 249);
+}
+
+input[type="range"].sound-slider {
+  width: 100%;
+  margin: 1rem 0; /* 10px 0 */
+}
+
+.repeat-input {
+  width: 6rem; /* 60px */
+  padding: 0.5rem; /* 5px */
+  border: 0.1rem solid rgb(204, 204, 204); /* 1px */
+  border-radius: 0.4rem; /* 4px */
+  text-align: center;
+}
+
+.pomodoro-settings-modal {
+  background-color: rgb(255, 255, 255);
+  padding: 2rem; /* 20px */
+  border-radius: 0.8rem; /* 8px */
+  /* width: 105%; */
+  /* max-width: 30rem; */ /* 300px */
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0.4rem 0.8rem; /* 0px 4px 8px */
+  /* height: 71vh; */
+  overflow: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; /* 10px */
+}
+
+.time-inputs, .switches, .sound-settings, .task-settings {
+  margin-bottom: 2rem; /* 20px */
+}
+
+#alarm-repeat {
+  width: 93%;
+  background-color: #f0f8ff; 
+  color: #333;
+  border: 0.1rem solid #ddd; /* 1px */
+  border-radius: 0.6rem; /* 6px */
+  font-size: 1.6rem; /* 16px */
+  transition: background-color 0.3s;
+}

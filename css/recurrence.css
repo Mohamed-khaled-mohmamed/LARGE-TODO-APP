@@ -1,0 +1,130 @@
+/* قاعدة عرض الخلفية */
+.popup {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 32, 32, 0.24);
+  backdrop-filter: blur(0.5rem); /* تأثير الضبابية */
+}
+
+/* إخفاء النافذة المنبثقة */
+.hide {
+  display: none;
+}
+
+/* تصميم محتوى النافذة المنبثقة */
+.popup-content {
+  background-color: #ffffff; /* خلفية بيضاء */
+  color: #333; /* لون النص */
+  margin: 10% auto;
+  padding: 2.5rem; /* 25px */
+  border: none;
+  width: 90%;
+  max-width: 45rem; /* 450px */
+  border-radius: 1.2rem; /* 12px */
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.2); /* 8px 16px */
+  position: relative; /* لضبط موقع زر الإغلاق */
+}
+
+/* تصميم زر الإغلاق */
+.close-btn {
+  color: #333;
+  position: absolute;
+  top: 1rem; /* 10px */
+  right: 1rem; /* 10px */
+  font-size: 2.4rem; /* 24px */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #ff6b6b; /* لون عند التمرير فوق */
+}
+
+/* عنوان النافذة */
+h2 {
+  font-size: 2.4rem; /* 24px */
+  margin-bottom: 2rem; /* 20px */
+  font-weight: 600;
+  text-align: center;
+  color: #2c3e50; /* لون النص */
+}
+
+/* تصميم العناصر label */
+.popup-content label {
+  font-size: 1.6rem; /* 16px */
+  margin-top: 1.5rem; /* 15px */
+  display: block;
+  font-weight: 500;
+  color: #34495e; /* لون النص */
+}
+
+select {
+  width: 95%;
+}
+
+input[type="date"]{
+  width: 90%;
+}
+
+/* تصميم select و input */
+select,
+input[type="date"],
+input[type="number"] {
+  padding: 1rem; /* 10px */
+  margin-top: 1rem; /* 10px */
+  background-color: #f0f8ff; /* خلفية فاتحة */
+  color: #333;
+  border: 0.1rem solid #ddd; /* 1px */
+  border-radius: 0.6rem; /* 6px */
+  font-size: 1.6rem; /* 16px */
+  transition: background-color 0.3s;
+}
+
+select:focus,
+input[type="date"]:focus,
+input[type="number"]:focus {
+  background-color: #e1e1e1; /* لون عند التمرير فوق */
+  outline: none;
+}
+
+/* تصميم أزرار النموذج */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem; /* 25px */
+}
+
+.form-buttons button {
+  padding: 1.2rem 2rem; /* 12px 20px */
+  border: none;
+  border-radius: 0.8rem; /* 8px */
+  cursor: pointer;
+  font-size: 1.6rem; /* 16px */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#saveRecurrenceBtn {
+  background-color: #4caf50; /* أخضر زاهي */
+  color: white;
+}
+
+#saveRecurrenceBtn:hover {
+  background-color: #45a049;
+  transform: translateY(-0.2rem); /* 2px */
+}
+
+.btn-cancel {
+  background-color: #f44336; /* أحمر */
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #e53935;
+  transform: translateY(-0.2rem); /* 2px */
+}

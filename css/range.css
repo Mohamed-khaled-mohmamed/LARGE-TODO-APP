@@ -1,0 +1,150 @@
+/* إزالة الظهور الافتراضي للشريط */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 58%;
+  cursor: pointer;
+  outline: none;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  background: transparent; /* تأكد من عدم وجود خلفية شريط تمرير افتراضية */
+}
+
+/* تصميم الشريط: متصفحات webkit (مثل Chrome, Safari) */
+input[type='range']::-webkit-slider-runnable-track {
+  height: 1.5rem;
+  background: #007bff;
+  border-radius: 1.6rem;
+}
+
+/* تصميم الشريط: متصفح Mozilla Firefox */
+input[type='range']::-moz-range-track {
+  height: 1.5rem;
+  background: #007bff;
+  border-radius: 1.6rem;
+}
+
+/* تصميم الكرة (التمثال): متصفحات webkit */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 0.2rem solid #007bff;
+  box-shadow: -40.7rem 0 0 40rem #0056b3; /* تأثير التدرج للون */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* تصميم الكرة (التمثال): متصفح Mozilla Firefox */
+input[type='range']::-moz-range-thumb {
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 0.1rem solid #007bff;
+  box-shadow: -40.7rem 0 0 40rem #0056b3; /* تأثير التدرج للون */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* مظهر الشريط عند التمرير */
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background: #007bff;
+}
+
+/* مظهر الشريط عند التمرير في Firefox */
+input[type='range']:focus::-moz-range-track {
+  background: #007bff;
+}
+
+/* مظهر قيمة الشريط */
+#long-break-slider-value,
+#sessions-slider-value,
+#time-slider-value,
+#short-break-slider-value {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+  /* margin-left: 1rem; */
+}
+
+#time-slider-value,
+#short-break-slider-value {
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+/* تصميم الحاوية */
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* تصميم شريط التمرير */
+.time-slider-long-break-duration {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 1.5rem; /* تعديل الارتفاع ليتوافق مع تصميم الشريط */
+  border-radius: 1.6rem; /* تعديل الزوايا لتتناسب مع التصميم */
+  background: #ccc;
+  outline: none;
+  transition: background 0.3s;
+}
+
+/* تصميم الكرة (التمثال) لشريط التمرير */
+.time-slider-long-break-duration::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.5rem; /* تعديل العرض */
+  height: 1.5rem; /* تعديل الارتفاع */
+  border-radius: 50%;
+  background-color: #fff;
+  border: 0.2rem solid #ccc;
+  box-shadow: -40.7rem 0 0 40rem #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* تصميم الكرة (التمثال) لشريط التمرير في Firefox */
+.time-slider-long-break-duration::-moz-range-thumb {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 0.2rem solid #ccc;
+  box-shadow: -40.7rem 0 0 40rem #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* تصميم الأزرار */
+.decrease-btn,
+.increase-btn,
+.decrease-btn-sessions,
+.increase-btn-sessions {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.decrease-btn:hover,
+.increase-btn:hover,
+.decrease-btn-sessions:hover,
+.increase-btn-sessions:hover,
+.decrease-btn-long-break:hover,
+.increase-btn-long-break:hover {
+  background-color: #0056b3;
+}

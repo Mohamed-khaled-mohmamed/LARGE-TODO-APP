@@ -1,0 +1,166 @@
+/* زر الجرس */
+#bell-icon {
+  font-size: 1.5rem;
+  color: #007bff; /* أزرق */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#bell-icon:hover {
+  color: #0056b3; /* أزرق غامق */
+}
+
+/* الطبقة الخلفية */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+/* النافذة المنبثقة */
+.popup-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2.4rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  width: 30rem;
+  max-width: 90%;
+}
+
+/* عنوان النافذة */
+.popup-container h2 {
+  font-size: 2rem;
+  color: #007bff; /* أزرق */
+  margin-bottom: 1.5rem;
+}
+
+/* تصميم حقول النموذج */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  font-size: 1.2rem;
+  color: #333;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="datetime-local"],
+.form-group select {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: #f0f8ff; /* خلفية فاتحة */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="datetime-local"]:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.1);
+}
+
+/* أزرار النموذج */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.form-buttons button {
+  flex: 1;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.save-button {
+  background-color: #4caf50; /* أخضر */
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.cancel-button {
+  background-color: #f44336; /* أحمر */
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #e53935;
+  transform: translateY(-2px);
+}
+
+/* عرض النافذة المنبثقة */
+.popup-container.show {
+  display: block;
+}
+
+.overlay.show {
+  display: block;
+}
+
+/**/
+#custom-notification {
+  position: fixed;
+  bottom: 2rem; /* 20px */
+  right: 2rem; /* 20px */
+  background-color: #f8f9fa;
+  padding: 1.5rem; /* 15px */
+  border: 0.2rem solid #333; /* 2px */
+  border-radius: 1rem; /* 10px */
+  box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.1); /* 10px */
+  max-width: 30rem; /* 300px */
+  z-index: 1000;
+}
+
+#custom-notification h4 {
+  margin: 0;
+  font-size: 2rem; /* 12.5px */
+  color: #333;
+}
+
+#custom-notification p {
+  margin: 0.5rem 0; /* 5px */
+  color: #666;
+  font-size: 2rem; /* 12.5px */
+
+}
+
+#close-notification {
+  background-color: #333;
+  font-size: 1.5rem;
+  color: #fff;
+  border: none;
+  padding:1rem 1.5rem; /* 5px 10px */
+  cursor: pointer;
+  margin-top: 1rem; /* 10px */
+  border-radius: 0.5rem; /* 5px */
+}
+
+#close-notification:hover {
+  background-color: #555;
+}
